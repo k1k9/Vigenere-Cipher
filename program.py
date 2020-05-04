@@ -5,9 +5,7 @@ from modules.decrypt import decrypt
 
 
 
-##############################
 # CHECK USAGE MESSAGE
-##############################
 def _usage():
     print(
 f'''USAGE: {argv[0]} <OPTIONS> <KEY> <TEXT>
@@ -20,10 +18,7 @@ f'''USAGE: {argv[0]} <OPTIONS> <KEY> <TEXT>
 
 
 
-##############################
 # MAIN
-##############################
-
 if len(argv) < 4: _usage()
 
 elif len(argv) == 4:

@@ -2,9 +2,7 @@
 ''' DECRYPT GIVEN TEXT WITH KEY (VIGENERE METHOD) '''
 def decrypt(key, encrypt):
     
-    ##############################
     # CREATE CAESAR TABLE
-    ##############################
     from string import ascii_uppercase
     table = []
 
@@ -20,9 +18,8 @@ def decrypt(key, encrypt):
 
 
 
-    ##############################
+
     # SEARCH ELEMENTS
-    ##############################
     _ki = -1 # Key Iterrator
     key_text = ''
 

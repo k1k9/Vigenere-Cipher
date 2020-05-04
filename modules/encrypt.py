@@ -2,9 +2,7 @@
 ''' ENCRYPT GIVEN TEXT WITH KEY (VIGENERE CIPHER) '''
 def encrypt(key,text):
 
-    ##############################
     # CHANGE TEXT TO KEY TEXT
-    ##############################
     key_text = ''
     x = -1
 
@@ -26,9 +24,7 @@ def encrypt(key,text):
 
 
 
-    ##############################
     # CREATE CAESAR TABLE
-    ##############################
     from string import ascii_uppercase
     table = []
 
@@ -43,9 +39,7 @@ def encrypt(key,text):
 
 
 
-    ##############################
     # ENCRYPTION THE KEY_TEXT
-    ##############################
     encrypt = ''
 
     for i in range(len(text)):
