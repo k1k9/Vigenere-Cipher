@@ -1,30 +1,31 @@
 #!/usr/bin/env python3
+import argparse
+
 from sys import argv, exit
+from modules.caesar  import caesar_table
 from modules.encrypt import encrypt
 from modules.decrypt import decrypt
 
 
+parser = argparse.ArgumentParser(description='Encrypt and decrypt message using Vigenere Cipher method')
+# Options
+parser.add_argument('-e', '--encrypt', action='store_false',
+                    help='Encrypt your message via your key (default enabled)')
+parser.add_argument('-d','--decrypt', action='store_true',
+                    help='Decrypt your message via your key')
 
-# CHECK USAGE MESSAGE
-def _usage():
-    print(
-f'''USAGE: {argv[0]} <OPTIONS> <KEY> <TEXT>
+# Arguments
+parser.add_argument('key', metavar='KEY',
+                    help='KEY which encrypts/decrypts your message')
+parser.add_argument('text', metavar='TXT',
+                    help='Message wich you want to encrypt/decrypt message')
 
-    -e <KEY> <TEXT>\t Encrypt text via <KEY>
-    -d <KEY> <TEXT>\t Decrypt text via <KEY>
-''')
-    exit()
+args = parser.parse_args()
 
 
 
-
-# MAIN
-if len(argv) < 4: _usage()
-
-elif len(argv) == 4:
-    if argv[1].lower()   == '-e': encrypt(argv[2], argv[3])
-    elif argv[1].lower() == '-d': decrypt(argv[2], argv[3])
-    else:
-        _usage()
-
-else: _usage
+if args.decrypt:
+    encrypt(args.key, args.text, caesar_table())
+elif args.encrypt:
+    decrypt(args.key, args.text, caesar_table())
+    

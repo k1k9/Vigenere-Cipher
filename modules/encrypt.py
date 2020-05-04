@@ -1,6 +1,7 @@
+from string import ascii_uppercase
 
 ''' ENCRYPT GIVEN TEXT WITH KEY (VIGENERE CIPHER) '''
-def encrypt(key,text):
+def encrypt(key,text,table):
 
     # CHANGE TEXT TO KEY TEXT
     key_text = ''
@@ -21,26 +22,8 @@ def encrypt(key,text):
             x -= 1
 
 
-
-
-
-    # CREATE CAESAR TABLE
-    from string import ascii_uppercase
-    table = []
-
-    for i in range(len(ascii_uppercase)):
-        table.append([]) # Create row
-
-        for j in range(i, len(ascii_uppercase)):
-            table[i].append(ascii_uppercase[j])
-        
-        for j in range(0, i):
-            table[i].append(ascii_uppercase[j])
-
-
-
     # ENCRYPTION THE KEY_TEXT
-    encrypt = ''
+    encrypted = ''
 
     for i in range(len(text)):
         # Locate letter in caesar table
@@ -48,11 +31,10 @@ def encrypt(key,text):
         row    = ascii_uppercase.index(key_text[i].upper()) if key_text[i].isalpha() else False
 
         if column or row:
-            encrypt += table[row][column] if key_text[i].isupper() else table[row][column].lower()
+            encrypted += table[row][column] if key_text[i].isupper() else table[row][column].lower()
         else:
-            encrypt += text[i]
+            encrypted += text[i]
+
+
+    print(encrypted)
     
-
-
-
-    print(encrypt)
