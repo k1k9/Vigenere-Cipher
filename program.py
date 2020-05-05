@@ -26,6 +26,6 @@ args = parser.parse_args()
 
 if args.decrypt:
     encrypt(args.key, args.text, caesar_table())
-elif args.encrypt:
+elif not args.decrypt:
     decrypt(args.key, args.text, caesar_table())
     
